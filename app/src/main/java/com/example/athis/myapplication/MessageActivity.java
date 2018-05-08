@@ -15,7 +15,9 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.athis.myapplication.adapters.BaseAdapter;
+import com.example.athis.myapplication.adapters.BaseViewHolder;
 import com.example.athis.myapplication.adapters.MessageAdapter;
+import com.example.athis.myapplication.adapters.MessageViewHolder;
 import com.example.athis.myapplication.dataBean.message;
 import com.example.athis.myapplication.utils.LogUtils;
 import com.example.athis.myapplication.utils.ToastUtils;
@@ -50,11 +52,13 @@ public class MessageActivity extends AppCompatActivity {
         adapter.setListData(data);
         adapter.setOnLongClickListener(new BaseAdapter.onLongClickListener<message>() {
             @Override
-            public void onLongClick(message item, int index) {
-                LogUtils.d(item.content + " : "+ index);
+            public void onLongClick(BaseViewHolder<message> holder, message item, int index) {
+                adapter.removeItem(item,holder.getAdapterPosition());
             }
         });
         recyclerView.setAdapter(adapter);
+
+        recyclerView.scrollToPosition(data.size() - 1);
     }
 
     public void initActivityContent(){
@@ -94,7 +98,7 @@ public class MessageActivity extends AppCompatActivity {
             public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
                 Log.d("Layout Change: ", "l,t,r,b " + left + " " + top+" "+ right+" "+ bottom);
                 Log.d("Layout Change: ", "l,t,r,b " + oldLeft + " " + oldTop+" " + oldRight+" " + oldBottom);
-                if((bottom - top) > (oldTop - oldBottom)/3 && popAble){
+                if((bottom - top) > (oldTop - oldBottom)/3 && popAble && data!= null && data.size() != 0){
 //                    Toast.makeText(MessageActivity.this,"Keyboard Pop",Toast.LENGTH_SHORT).show();
                     recyclerView.smoothScrollToPosition(data.size() - 1);
                 }else{
@@ -142,7 +146,7 @@ public class MessageActivity extends AppCompatActivity {
     }
 
 //    判断点击的位置，在edittext所在布局的话没有变化，反之则隐藏软键盘
-    public boolean hasInputMethod(View view, MotionEvent event){
+    public boolean  hasInputMethod(View view, MotionEvent event){
         if(view instanceof EditText){
             View parent = findViewById(R.id.ll_et);
             int[] leftTop = {0,0};

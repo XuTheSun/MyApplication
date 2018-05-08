@@ -25,7 +25,8 @@
         <activity
             android:name=".ScrollActivity"
             android:label="@string/title_activity_scroll"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".utils.EventTestActivity"></activity>
     </application>
 
 </manifest>

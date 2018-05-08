@@ -51,7 +51,7 @@ public abstract class BaseViewHolder<E> extends RecyclerView.ViewHolder {
         int index;
         @Override
         public void onClick(View v) {
-            adapter.onItemClick(item, index);
+            adapter.onItemClick(BaseViewHolder.this, item, index);
         }
     }
 
@@ -60,7 +60,7 @@ public abstract class BaseViewHolder<E> extends RecyclerView.ViewHolder {
         int index;
         @Override
         public boolean onLongClick(View v) {
-            adapter.onItemLongClick(item, index);
+            adapter.onItemLongClick(BaseViewHolder.this, item, index);
             return true;
         }
     }

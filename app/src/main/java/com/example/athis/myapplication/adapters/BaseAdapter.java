@@ -45,15 +45,15 @@ public abstract class BaseAdapter<E> extends RecyclerView.Adapter<BaseViewHolder
         notifyItemRemoved(index);
     }
 
-    public void onItemClick(E item, int index){
+    public void onItemClick(BaseViewHolder<E> holder, E item, int index){
         if(onClickListener != null){
-            onClickListener.onClick(item, index);
+            onClickListener.onClick(holder, item, index);
         }
     }
 
-    public void onItemLongClick(E item, int index){
+    public void onItemLongClick(BaseViewHolder<E> holder, E item, int index){
         if(onLongClickListener != null){
-            onLongClickListener.onLongClick(item, index);
+            onLongClickListener.onLongClick(holder, item, index);
         }
     }
 
@@ -63,9 +63,9 @@ public abstract class BaseAdapter<E> extends RecyclerView.Adapter<BaseViewHolder
     }
 
     public interface onClickListener<E>{
-        void onClick(E item, int index);
+        void onClick(BaseViewHolder<E> holder, E item, int index);
     }
     public interface onLongClickListener<E>{
-        void onLongClick(E item, int index);
+        void onLongClick(BaseViewHolder<E> holder, E item, int index);
     }
 }
