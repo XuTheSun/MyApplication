@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">My Application</string>
     <string name="title_activity_scroll">ScrollActivity</string>
+    <string name="title_activity_process_test">ProcessTestActivity</string>
 </resources>

@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.example.athis.myapplication.Base.BaseActivity;
 import com.example.athis.myapplication.adapters.BaseAdapter;
 import com.example.athis.myapplication.adapters.BaseViewHolder;
 import com.example.athis.myapplication.adapters.MessageAdapter;
@@ -25,7 +26,7 @@ import com.example.athis.myapplication.utils.ToastUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MessageActivity extends AppCompatActivity {
+public class MessageActivity extends BaseActivity {
 
 
     RecyclerView recyclerView;

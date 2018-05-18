@@ -26,7 +26,19 @@
             android:name=".ScrollActivity"
             android:label="@string/title_activity_scroll"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".utils.EventTestActivity"></activity>
+        <activity android:name=".utils.EventTestActivity" />
+
+        <service
+            android:name=".service.MyService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity
+            android:name=".process_test_activities.ProcessTestActivity"
+            android:label="@string/title_activity_process_test"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".process_test_activities.ProcessTestActivity2"
+            android:process="com.guanxu.1"/>
     </application>
 
 </manifest>

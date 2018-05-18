@@ -6,23 +6,26 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.example.athis.myapplication.Base.BaseActivity;
 import com.example.athis.myapplication.adapters.BaseAdapter;
 import com.example.athis.myapplication.adapters.BaseViewHolder;
 import com.example.athis.myapplication.adapters.MainAdapter;
 import com.example.athis.myapplication.adapters.MainViewHolder;
 import com.example.athis.myapplication.dataBean.cards;
+import com.example.athis.myapplication.process_test_activities.ProcessTestActivity;
 import com.example.athis.myapplication.utils.EventTestActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     RecyclerView recyclerView;
     MainAdapter adapter;
     List<cards> data = new ArrayList<>();
     public static final int GOTO_MESSAGE = 0;
     public static final int GOTO_EVENT = 1;
+    public static final int GOTO_PROCESS = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
                     case GOTO_EVENT:
                         classType = EventTestActivity.class;
                         break;
+                    case GOTO_PROCESS:
+                        classType = ProcessTestActivity.class;
                 }
                 Intent intent = new Intent(MainActivity.this, classType);
                 startActivity(intent);
@@ -59,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
     public void initData(){
         data.add(new cards("仿聊天界面" , GOTO_MESSAGE));
         data.add(new cards("Event传递测试", GOTO_EVENT));
-//        data.add(new cards("Phython"));
+        data.add(new cards("多进程IPC测试",GOTO_PROCESS));
 //        data.add(new cards("C"));
 //        data.add(new cards("C#"));
 //        data.add(new cards("C++"));

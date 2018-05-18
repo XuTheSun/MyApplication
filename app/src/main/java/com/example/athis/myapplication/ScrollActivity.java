@@ -7,7 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-public class ScrollActivity extends AppCompatActivity {
+import com.example.athis.myapplication.Base.BaseActivity;
+
+public class ScrollActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
