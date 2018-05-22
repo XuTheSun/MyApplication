@@ -5,12 +5,33 @@ import android.os.Parcelable;
 
 public class Book implements Parcelable {
 
-    public String name;
-    public String id;
+    private String mName;
+    private String mId;
+
+    public Book(String name, String id){
+        this.mName = name;
+        this.mId = id;
+    }
+
+    public String getName() {
+        return mName;
+    }
+
+    public String getId() {
+        return mId;
+    }
+
+    public void setName(String name) {
+        this.mName = name;
+    }
+
+    public void setId(String id) {
+        this.mId = id;
+    }
 
     protected Book(Parcel in) {
-        id = in.readString();
-        name = in.readString();
+        mId = in.readString();
+        mName = in.readString();
     }
 
     public static final Creator<Book> CREATOR = new Creator<Book>() {
@@ -32,7 +53,12 @@ public class Book implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(id);
-        dest.writeString(name);
+        dest.writeString(mId);
+        dest.writeString(mName);
+    }
+
+    @Override
+    public String toString() {
+        return "ID: "+ mId + "  Name" + mName;
     }
 }

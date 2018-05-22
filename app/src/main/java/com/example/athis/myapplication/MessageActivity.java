@@ -40,10 +40,14 @@ public class MessageActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_message);
         initData();
         initRecycler();
         initActivityContent();
+    }
+
+    @Override
+    public int getResLayout() {
+        return R.layout.activity_message;
     }
 
     public void initRecycler(){

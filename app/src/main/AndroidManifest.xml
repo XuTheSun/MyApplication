@@ -33,12 +33,16 @@
             android:enabled="true"
             android:exported="true" />
 
+        <activity android:name=".process_test_activities.ProcessTestActivity" />
         <activity
-            android:name=".process_test_activities.ProcessTestActivity"
-            android:label="@string/title_activity_process_test"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".process_test_activities.ProcessTestActivity2"
-            android:process="com.guanxu.1"/>
+            android:name=".process_test_activities.ProcessTestActivity2"
+            android:process=":process" />
+
+        <service
+            android:name=".process_test_activities.MyService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":service"></service>
     </application>
 
 </manifest>
