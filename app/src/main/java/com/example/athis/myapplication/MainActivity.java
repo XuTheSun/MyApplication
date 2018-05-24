@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.example.athis.myapplication.Base.BaseActivity;
+import com.example.athis.myapplication.RecyclerInteract.DoubleRecActivity;
 import com.example.athis.myapplication.adapters.BaseAdapter;
 import com.example.athis.myapplication.adapters.BaseViewHolder;
 import com.example.athis.myapplication.adapters.MainAdapter;
@@ -26,7 +27,7 @@ public class MainActivity extends BaseActivity {
     public static final int GOTO_MESSAGE = 0;
     public static final int GOTO_EVENT = 1;
     public static final int GOTO_PROCESS = 2;
-    public static final int GOTO_SERVICE = 3;
+    public static final int GOTO_REC = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,8 +60,9 @@ public class MainActivity extends BaseActivity {
                     case GOTO_PROCESS:
                         classType = ProcessTestActivity.class;
                         break;
-//                    case GOTO_SERVICE:
-//                        classType =
+                    case GOTO_REC:
+                        classType = DoubleRecActivity.class;
+                        break;
                 }
                 Intent intent = new Intent(MainActivity.this, classType);
                 startActivity(intent);
@@ -73,7 +75,7 @@ public class MainActivity extends BaseActivity {
         data.add(new cards("仿聊天界面" , GOTO_MESSAGE));
         data.add(new cards("Event传递测试", GOTO_EVENT));
         data.add(new cards("多进程IPC测试",GOTO_PROCESS));
-//        data.add(new cards("Service Test",GOTO_SERVICE));
+        data.add(new cards("Recycler交互",GOTO_REC));
 //        data.add(new cards("C#"));
 //        data.add(new cards("C++"));
 //        data.add(new cards("Spark"));

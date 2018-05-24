@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import com.example.athis.myapplication.ProcessTest.ProcessConstants;
+import com.example.athis.myapplication.process_test_activities.ProcessConstants;
 import com.example.athis.myapplication.utils.ProcessUtil;
 
 import butterknife.ButterKnife;

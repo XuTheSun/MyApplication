@@ -11,7 +11,7 @@ import android.view.View;
 public abstract class BaseViewHolder<E> extends RecyclerView.ViewHolder {
 
     View itemView;
-    BaseAdapter<E> adapter;
+    protected BaseAdapter<E> adapter;
     myOnClickListener myOnClickListener;
     myOnLongClickListener myOnLongClickListener;
 

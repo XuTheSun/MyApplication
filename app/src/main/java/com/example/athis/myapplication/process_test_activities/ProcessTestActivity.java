@@ -15,13 +15,10 @@ import android.widget.Toast;
 import com.example.athis.myapplication.Base.BaseActivity;
 import com.example.athis.myapplication.Book;
 import com.example.athis.myapplication.IBookManager;
-import com.example.athis.myapplication.ProcessTest.ProcessConstants;
 import com.example.athis.myapplication.R;
-import com.example.athis.myapplication.utils.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.TooManyListenersException;
 
 import butterknife.BindView;
 import butterknife.OnClick;
