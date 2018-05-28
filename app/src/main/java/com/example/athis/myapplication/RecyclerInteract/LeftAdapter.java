@@ -30,13 +30,8 @@ public class LeftAdapter extends BaseAdapter<SelectBean> {
         @BindView(R.id.name_left)
         TextView nameLeft;
 
-        public LeftHolder(View itemView) {
-            this(itemView, null);
-        }
-
         public LeftHolder(View itemView, @Nullable LeftAdapter adapter) {
             super(itemView, adapter);
-
         }
 
         @Override

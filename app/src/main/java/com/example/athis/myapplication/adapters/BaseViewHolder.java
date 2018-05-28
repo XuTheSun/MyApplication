@@ -4,25 +4,23 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import butterknife.ButterKnife;
+
 /**
  * Created by This on 2018/4/23.
  */
 
 public abstract class BaseViewHolder<E> extends RecyclerView.ViewHolder {
 
-    View itemView;
+    protected View itemView;
     protected BaseAdapter<E> adapter;
     myOnClickListener myOnClickListener;
     myOnLongClickListener myOnLongClickListener;
 
-
-    public BaseViewHolder(View itemView) {
-        this(itemView, null);
-    }
-
     public BaseViewHolder(View itemView, @Nullable BaseAdapter<E> adapter) {
         super(itemView);
         this.itemView = itemView;
+        ButterKnife.bind(this, itemView);
         if(adapter != null){
             this.adapter = adapter;
             myOnClickListener = new myOnClickListener();

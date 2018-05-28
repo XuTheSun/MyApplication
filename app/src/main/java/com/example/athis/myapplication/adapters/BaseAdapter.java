@@ -13,7 +13,7 @@ import java.util.List;
 
 public abstract class BaseAdapter<E> extends RecyclerView.Adapter<BaseViewHolder<E>> {
 
-    List<E> listData;
+    protected List<E> listData;
     onClickListener<E> onClickListener;
     onLongClickListener<E> onLongClickListener;
 

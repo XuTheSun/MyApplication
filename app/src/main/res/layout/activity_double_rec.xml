@@ -8,17 +8,22 @@
     tools:context=".RecyclerInteract.DoubleRecActivity"
     android:background="#ffffff">
 
+
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recylcer_left"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"></android.support.v7.widget.RecyclerView>
-
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="#999999"/>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_right"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="5">
+        android:layout_weight="2.5">
 
     </android.support.v7.widget.RecyclerView>
 </LinearLayout>
