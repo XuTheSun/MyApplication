@@ -8,8 +8,6 @@
     tools:context=".RecyclerInteract.DoubleRecActivity"
     android:background="#ffffff">
 
-
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recylcer_left"
         android:layout_width="0dp"
