@@ -6,6 +6,10 @@ package com.example.athis.myapplication.dataBean;
 
 public class cards {
 
+    public cards(String name){
+        this.name = name;
+    }
+
     public cards(String name, int goTo){
         this.name = name;
         this.goTo = goTo;

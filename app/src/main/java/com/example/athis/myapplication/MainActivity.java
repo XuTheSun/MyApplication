@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.example.athis.myapplication.Base.BaseActivity;
+import com.example.athis.myapplication.DragView.DragActivity;
 import com.example.athis.myapplication.RecyclerInteract.DoubleRecActivity;
 import com.example.athis.myapplication.adapters.BaseAdapter;
 import com.example.athis.myapplication.adapters.BaseViewHolder;
@@ -27,6 +28,7 @@ public class MainActivity extends BaseActivity {
     public static final int GOTO_REC = 3;
     public static final int GOTO_DIALOG = 4;
     public static final int GOTO_EVENT_BUS = 5;
+    public static final int GOTO_DRAG = 6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +69,10 @@ public class MainActivity extends BaseActivity {
                         break;
                     case GOTO_EVENT_BUS:
                         classType = EventBusActivity.class;
+                        break;
+                    case GOTO_DRAG:
+                        classType = DragActivity.class;
+                        break;
                 }
                 Intent intent = new Intent(MainActivity.this, classType);
                 startActivity(intent);
@@ -82,7 +88,7 @@ public class MainActivity extends BaseActivity {
         data.add(new cards("Recycler交互",GOTO_REC));
         data.add(new cards("自定义dialog测试",GOTO_DIALOG));
         data.add(new cards("EventBus",GOTO_EVENT_BUS));
-//        data.add(new cards("Spark"));
+        data.add(new cards("Recycler Drag", GOTO_DRAG));
 //        data.add(new cards("Ruby"));
 //        data.add(new cards("Android"));
     }
