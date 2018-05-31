@@ -14,6 +14,7 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -25,7 +26,7 @@
             android:name=".ScrollActivity"
             android:label="@string/title_activity_scroll"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".utils.EventTestActivity" />
+        <activity android:name=".EventTestActivity" />
 
         <service
             android:name=".service.MyService"
@@ -43,8 +44,12 @@
             android:exported="true"
             android:process=":service" />
 
-        <activity android:name=".RecyclerInteract.DoubleRecActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+        <activity
+            android:name=".RecyclerInteract.DoubleRecActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".MyDialogActivity" />
+        <activity android:name=".EventBusActivity" />
+        <activity android:name=".EventBusTwoActivity"></activity>
     </application>
 
 </manifest>

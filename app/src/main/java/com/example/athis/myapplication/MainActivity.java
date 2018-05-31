@@ -1,7 +1,6 @@
 package com.example.athis.myapplication;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,10 +10,8 @@ import com.example.athis.myapplication.RecyclerInteract.DoubleRecActivity;
 import com.example.athis.myapplication.adapters.BaseAdapter;
 import com.example.athis.myapplication.adapters.BaseViewHolder;
 import com.example.athis.myapplication.adapters.MainAdapter;
-import com.example.athis.myapplication.adapters.MainViewHolder;
 import com.example.athis.myapplication.dataBean.cards;
 import com.example.athis.myapplication.process_test_activities.ProcessTestActivity;
-import com.example.athis.myapplication.utils.EventTestActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +25,8 @@ public class MainActivity extends BaseActivity {
     public static final int GOTO_EVENT = 1;
     public static final int GOTO_PROCESS = 2;
     public static final int GOTO_REC = 3;
+    public static final int GOTO_DIALOG = 4;
+    public static final int GOTO_EVENT_BUS = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +62,11 @@ public class MainActivity extends BaseActivity {
                     case GOTO_REC:
                         classType = DoubleRecActivity.class;
                         break;
+                    case GOTO_DIALOG:
+                        classType = MyDialogActivity.class;
+                        break;
+                    case GOTO_EVENT_BUS:
+                        classType = EventBusActivity.class;
                 }
                 Intent intent = new Intent(MainActivity.this, classType);
                 startActivity(intent);
@@ -76,8 +80,8 @@ public class MainActivity extends BaseActivity {
         data.add(new cards("Event传递测试", GOTO_EVENT));
         data.add(new cards("多进程IPC测试",GOTO_PROCESS));
         data.add(new cards("Recycler交互",GOTO_REC));
-//        data.add(new cards("C#"));
-//        data.add(new cards("C++"));
+        data.add(new cards("自定义dialog测试",GOTO_DIALOG));
+        data.add(new cards("EventBus",GOTO_EVENT_BUS));
 //        data.add(new cards("Spark"));
 //        data.add(new cards("Ruby"));
 //        data.add(new cards("Android"));

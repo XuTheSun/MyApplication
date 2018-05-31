@@ -43,12 +43,14 @@ public class EventLayout extends LinearLayout {
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         switch (ev.getAction()){
             case MotionEvent.ACTION_MOVE:
-                return true;
+                break;
+//                return true;
             case MotionEvent.ACTION_DOWN:
                 break;
+//                return true;
             case MotionEvent.ACTION_UP:
 //                Log.d("Layout","UP");
-//                return true;
+                return true;
         }
         Log.d("layout.Intercept",ev.getAction()+"");
         return super.onInterceptTouchEvent(ev);

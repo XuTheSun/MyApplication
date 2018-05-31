@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_30_000">
+
+    <LinearLayout
+        android:layout_centerInParent="true"
+        android:background="@drawable/bg_c_10"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_above="@id/line">
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/color_100"
+                android:textSize="17sp"
+                android:visibility="visible"
+                android:textStyle="bold"
+                android:text="提示"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/tv_message"
+                    android:textColor="@color/color_100"
+                    android:textSize="@dimen/text_4"
+                    android:layout_width="wrap_content"
+                    android:lineSpacingExtra="3dp"
+                    android:layout_height="wrap_content"
+                    android:text="粉丝正常浏览主页"/>
+            </RelativeLayout>
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+            <TextView
+                android:id="@+id/tv_cancel"
+                android:textColor="@color/color_100"
+                android:textSize="@dimen/text_2"
+                android:gravity="center"
+                android:text="取消"
+                android:background="?android:selectableItemBackground"
+                android:layout_alignParentBottom="true"
+                android:layout_width="150dp"
+                android:layout_height="55dp" />
+
+            <View
+                android:id="@+id/line_divider"
+                android:layout_toRightOf="@id/tv_cancel"
+                android:layout_alignParentBottom="true"
+                android:layout_width="0.5dp"
+                android:layout_height="55dp"
+                android:background="@color/color_106" />
+
+
+            <TextView
+                android:layout_toRightOf="@id/line_divider"
+                android:id="@+id/tv_confirm"
+                android:textColor="@color/color_001"
+                android:textSize="@dimen/text_2"
+                android:gravity="center"
+                android:text="确定"
+                android:background="?android:selectableItemBackground"
+                android:layout_alignParentBottom="true"
+                android:layout_width="150dp"
+                android:layout_height="55dp" />
+
+            <View
+                android:id="@+id/line"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/color_106"
+                android:layout_above="@id/tv_cancel" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

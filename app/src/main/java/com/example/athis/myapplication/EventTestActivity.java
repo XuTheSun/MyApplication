@@ -1,4 +1,4 @@
-package com.example.athis.myapplication.utils;
+package com.example.athis.myapplication;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.athis.myapplication.R;
 import com.example.athis.myapplication.Weigets.EventLayout;
 
 public class EventTestActivity extends AppCompatActivity {
