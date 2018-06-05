@@ -29,13 +29,13 @@ public class EventLayout extends LinearLayout {
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
-        Log.d("layout.dispatch",ev.getAction()+"");
+        Log.d("activity_corp_img.dispatch",ev.getAction()+"");
         return super.dispatchTouchEvent(ev);
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        Log.d("layout.onTouchEvent",event.getAction()+"");
+        Log.d("activity_corp_img.onTouchEvent",event.getAction()+"");
         return super.onTouchEvent(event);
     }
 
@@ -52,7 +52,7 @@ public class EventLayout extends LinearLayout {
 //                Log.d("Layout","UP");
                 return true;
         }
-        Log.d("layout.Intercept",ev.getAction()+"");
+        Log.d("activity_corp_img.Intercept",ev.getAction()+"");
         return super.onInterceptTouchEvent(ev);
     }
 

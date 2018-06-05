@@ -50,7 +50,9 @@
         <activity android:name=".MyDialogActivity" />
         <activity android:name=".EventBusActivity" />
         <activity android:name=".EventBusTwoActivity" />
-        <activity android:name=".DragView.DragActivity"></activity>
+        <activity android:name=".DragView.DragActivity" />
+        <activity android:name=".DragView.CustomGridActivity"></activity>
+        <activity android:name=".CropImage.CropImgActivity"/>
     </application>
 
 </manifest>
