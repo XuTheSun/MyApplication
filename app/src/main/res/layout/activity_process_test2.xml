@@ -5,5 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".process_test_activities.ProcessTestActivity2">
-
+<android.support.v7.widget.AppCompatButton
+    android:id="@+id/read_from_file"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Read Card"/>
 </android.support.constraint.ConstraintLayout>

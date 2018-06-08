@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.FileUriExposedException;
 import android.os.IBinder;
 import android.util.Log;
 import android.view.View;
@@ -16,7 +17,13 @@ import com.example.athis.myapplication.Base.BaseActivity;
 import com.example.athis.myapplication.Book;
 import com.example.athis.myapplication.IBookManager;
 import com.example.athis.myapplication.R;
+import com.example.athis.myapplication.dataBean.cards;
+import com.example.athis.myapplication.utils.FilePathUtils;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,8 +53,8 @@ public class ProcessTestActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ProcessConstants.TEST = 100;
-        getList();
-        refreshTv();
+//        getList();
+//        refreshTv();
     }
 
     @Override
@@ -80,18 +87,46 @@ public class ProcessTestActivity extends BaseActivity {
         }
     }
 
+    public void writeToFile(){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                cards card = new cards("test file write", 100);
+                File cacheFile = new File(FilePathUtils.getCachePath(ProcessTestActivity.this)+"/card.txt");
+//                Log.d("FILE PATH:", cacheFile.getPath());
+                ObjectOutputStream out = null;
+                try{
+                    if(cacheFile.exists()){
+                        cacheFile.delete();
+                    }
+                    cacheFile.createNewFile();
+                    out = new ObjectOutputStream(new FileOutputStream(cacheFile));
+                    out.writeObject(card);
+                    Log.d("Finish Writing","Finish!!!");
+                }catch(Exception e){
+                    e.printStackTrace();
+                }finally {
+                    try {
+                        out.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }).start();
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    @OnClick({R.id.button_next, R.id.button_bind, R.id.button_add, R.id.button_show})
+    @OnClick({R.id.button_next, R.id.button_bind, R.id.button_add, R.id.button_show, R.id.write_to_file})
     public void onViewClicked(View view) {
         Intent intent;
         switch (view.getId()) {
             case R.id.button_next:
-                intent = new Intent(this, ProcessTestActivity2.class);
-                startActivity(intent);
+                startActivity(new Intent(this, ProcessTestActivity2.class));
                 break;
             case R.id.button_bind:
                 intent = new Intent(this, MyService.class);
@@ -103,6 +138,9 @@ public class ProcessTestActivity extends BaseActivity {
             case R.id.button_show:
                 getList();
                 refreshTv();
+                break;
+            case R.id.write_to_file:
+                writeToFile();
                 break;
         }
     }
@@ -121,4 +159,10 @@ public class ProcessTestActivity extends BaseActivity {
             Log.d("Connection", "Disconnected");
         }
     };
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unbindService(conn);
+    }
 }

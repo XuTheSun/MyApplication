@@ -29,7 +29,8 @@ public class MainActivity extends BaseActivity {
     public static final int GOTO_DIALOG = 4;
     public static final int GOTO_EVENT_BUS = 5;
     public static final int GOTO_DRAG = 6;
-    public static final int GOTO_CORP = 7;
+    public static final int GOTO_WEB = 7;
+    public static final int GOTO_STATUS = 8;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,8 +75,11 @@ public class MainActivity extends BaseActivity {
                     case GOTO_DRAG:
                         classType = DragActivity.class;
                         break;
-                    case GOTO_CORP:
-//                        classType = CropImgActivity.class;
+                    case GOTO_WEB:
+                        classType = WebViewActivity.class;
+                        break;
+                    case GOTO_STATUS:
+                        classType = StatusActivity.class;
                         break;
                 }
                 Intent intent = new Intent(MainActivity.this, classType);
@@ -93,7 +97,7 @@ public class MainActivity extends BaseActivity {
         data.add(new cards("自定义dialog测试",GOTO_DIALOG));
         data.add(new cards("EventBus",GOTO_EVENT_BUS));
         data.add(new cards("Recycler Drag", GOTO_DRAG));
-        data.add(new cards("CorpImage",GOTO_CORP));
-//        data.add(new cards("Android"));
+        data.add(new cards("WebView X5",GOTO_WEB));
+        data.add(new cards("Status", GOTO_STATUS));
     }
 }

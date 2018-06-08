@@ -1,10 +1,12 @@
 package com.example.athis.myapplication.dataBean;
 
+import java.io.Serializable;
+
 /**
  * Created by This on 2018/4/23.
  */
 
-public class cards {
+public class cards implements Serializable{
 
     public cards(String name){
         this.name = name;

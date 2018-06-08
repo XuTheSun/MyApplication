@@ -11,11 +11,7 @@ import com.example.athis.myapplication.R;
 import com.example.athis.myapplication.adapters.BaseAdapter;
 import com.example.athis.myapplication.adapters.BaseViewHolder;
 import com.example.athis.myapplication.dataBean.SelectBean;
-
 import org.jetbrains.annotations.Nullable;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 
