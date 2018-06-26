@@ -22,12 +22,13 @@ import butterknife.OnClick;
 
 public class ProcessTestActivity2 extends BaseActivity {
 
-    MyHandler handler;
+    MyHandler handler = new MyHandler(this);
+    Handler mHandler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        handler = new MyHandler(this);
+//        handler = new MyHandler(this);
 //        readFromFile();
     }
 
@@ -35,17 +36,25 @@ public class ProcessTestActivity2 extends BaseActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                cards card = null;
                 File cache = new File(FilePathUtils.getCachePath(ProcessTestActivity2.this)
-                        + "/card.txt");
+                        + "/card");
                 ObjectInputStream in = null;
                 try {
                     in = new ObjectInputStream(new FileInputStream(cache));
-                    card = (cards) in.readObject();
-                    Message msg = new Message();
-                    msg.what = 0;
-                    msg.obj = card;
-                    handler.handleMessage(msg);
+                    final cards card = (cards) in.readObject();
+//                    Message msg = new Message();
+//                    msg.what = 0;
+//                    msg.obj = card;
+                    mHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            Log.d("Handler Thread: ",Thread.currentThread().getName());
+                            Toast.makeText(ProcessTestActivity2.this,"Card: " + card.name
+                                    + ", GOTO: " + card.goTo,Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    Log.d("CARD INFORMATION", card.name + ", " + card.goTo);
+//                    handler.handleMessage(msg);
                 } catch (Exception e) {
                     e.printStackTrace();
                 } finally {
@@ -71,10 +80,10 @@ public class ProcessTestActivity2 extends BaseActivity {
 
     public static class MyHandler extends Handler {
 
-        WeakReference<ProcessTestActivity2> context;
+        public WeakReference<ProcessTestActivity2> context;
 
         public MyHandler(ProcessTestActivity2 activity2) {
-            context = new WeakReference<ProcessTestActivity2>(activity2);
+            context = new WeakReference<>(activity2);
         }
 
         @Override
@@ -85,11 +94,11 @@ public class ProcessTestActivity2 extends BaseActivity {
                 if (msg.obj instanceof cards) {
                     card = (cards) msg.obj;
                 }
+                Log.d("Handler Thread: ",Thread.currentThread().getName());
                 Log.d("CARD INFORMATION", card.name + ", " + card.goTo);
                 Toast.makeText(context.get(), card.name + ", " + card.goTo, Toast.LENGTH_SHORT).show();
             }
         }
     }
-
 
 }

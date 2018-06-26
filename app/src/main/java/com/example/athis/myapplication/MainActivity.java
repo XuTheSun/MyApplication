@@ -2,11 +2,13 @@ package com.example.athis.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.example.athis.myapplication.Base.BaseActivity;
 import com.example.athis.myapplication.DragView.DragActivity;
+import com.example.athis.myapplication.MediaPlayer.MediaPlayActivity;
 import com.example.athis.myapplication.RecyclerInteract.DoubleRecActivity;
 import com.example.athis.myapplication.adapters.BaseAdapter;
 import com.example.athis.myapplication.adapters.BaseViewHolder;
@@ -31,6 +33,8 @@ public class MainActivity extends BaseActivity {
     public static final int GOTO_DRAG = 6;
     public static final int GOTO_WEB = 7;
     public static final int GOTO_STATUS = 8;
+    public static final int GOTO_MEDIA = 9;
+    public static final int GOTO_HUD =  10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +85,12 @@ public class MainActivity extends BaseActivity {
                     case GOTO_STATUS:
                         classType = StatusActivity.class;
                         break;
+                    case GOTO_MEDIA:
+                        classType = MediaPlayActivity.class;
+                        break;
+                    case GOTO_HUD:
+                        classType = HudActivity.class;
+                        break;
                 }
                 Intent intent = new Intent(MainActivity.this, classType);
                 startActivity(intent);
@@ -99,5 +109,7 @@ public class MainActivity extends BaseActivity {
         data.add(new cards("Recycler Drag", GOTO_DRAG));
         data.add(new cards("WebView X5",GOTO_WEB));
         data.add(new cards("Status", GOTO_STATUS));
+        data.add(new cards("Media Player", GOTO_MEDIA));
+        data.add(new cards("Hud Animation Test", GOTO_HUD));
     }
 }

@@ -14,4 +14,9 @@ public class FilePathUtils {
         }
         return path;
     }
+
+    public static String getSdCardPath(){
+        return System.getenv("EXTERNAL_STORAGE");
+    }
 }
+

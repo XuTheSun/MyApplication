@@ -23,6 +23,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         String processName = ProcessUtil.getProcessName(getApplicationContext(),processUid);
         Log.d("Process Info" ,processUid+": "+processName);
         Log.d("Process Info" , ProcessConstants.TEST++ +"");
+        Log.d("Main Thread: ", Thread.currentThread().getName());
         setContentView(getResLayout());
         unbinder = ButterKnife.bind(this);
     }

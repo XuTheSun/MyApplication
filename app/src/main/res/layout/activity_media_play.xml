@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MediaPlayer.MediaPlayActivity"
+    android:background="#000000">
+<TextView
+    android:id="@+id/tv_desc"
+    android:layout_alignParentBottom="true"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:textSize="25sp"
+    android:gravity="center_vertical"
+    android:text="你好"
+    android:textColor="#ffffff"
+    android:layout_marginRight="20dp"
+    android:layout_marginLeft="20dp"/>
+    <cn.jzvd.JZVideoPlayerStandard
+        android:id="@+id/video"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/tv_desc"
+        android:visibility="gone"/>
+    <com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer
+        android:id="@+id/video_g"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer>
+</RelativeLayout>

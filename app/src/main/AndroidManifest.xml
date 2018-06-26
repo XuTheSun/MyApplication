@@ -63,7 +63,20 @@
         <activity
             android:name=".WebViewActivity"
             android:configChanges="orientation|screenSize|keyboardHidden" />
-        <activity android:name=".StatusActivity"/>
+        <activity android:name=".StatusActivity" />
+        <activity android:name=".process_test_activities.MessengerActivity" />
+
+        <service
+            android:name=".process_test_activities.MessengerService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":messenger" />
+
+        <activity
+            android:name=".MediaPlayer.MediaPlayActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity android:name=".HudActivity"></activity>
     </application>
 
 </manifest>

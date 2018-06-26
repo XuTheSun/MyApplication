@@ -6,7 +6,10 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.FileUriExposedException;
+import android.os.Handler;
 import android.os.IBinder;
+import android.os.Looper;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -24,6 +27,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,6 +37,7 @@ import butterknife.OnClick;
 public class ProcessTestActivity extends BaseActivity {
 
     IBookManager manager;
+
 
     public static final int FLAG_SEND = 0;
     public static final int FLAG_START_SERVICE = 1;
@@ -92,7 +97,7 @@ public class ProcessTestActivity extends BaseActivity {
             @Override
             public void run() {
                 cards card = new cards("test file write", 100);
-                File cacheFile = new File(FilePathUtils.getCachePath(ProcessTestActivity.this)+"/card.txt");
+                File cacheFile = new File(FilePathUtils.getCachePath(ProcessTestActivity.this)+"/card");
 //                Log.d("FILE PATH:", cacheFile.getPath());
                 ObjectOutputStream out = null;
                 try{
@@ -102,7 +107,10 @@ public class ProcessTestActivity extends BaseActivity {
                     cacheFile.createNewFile();
                     out = new ObjectOutputStream(new FileOutputStream(cacheFile));
                     out.writeObject(card);
-                    Log.d("Finish Writing","Finish!!!");
+                    Message m = new Message();
+                    m.what = 0;
+                    Log.d("SubThread: ", Thread.currentThread().getName());
+                    Log.d("Finish Writing","Finish, CurrentThread: "+Thread.currentThread().getName());
                 }catch(Exception e){
                     e.printStackTrace();
                 }finally {
